@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>Owin.Dependencies</id>
+    <version>0.1.0-pre01</version>
+    <title>Owin.Dependencies</title>
+    <authors>Tugberk Ugurlu</authors>
+    <owners>Tugberk Ugurlu</owners>
+    <licenseUrl>https://github.com/tugberkugurlu/Owin.Dependencies/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tugberkugurlu/Owin.Dependencies</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Infrastructure for an IoC container adapter into OWIN pipeline</description>
+    <tags>OWIN IoC DependencyInjection DI</tags>
+    <dependencies>
+      <dependency id="Microsoft.Owin" version="2.0.0-rc1" />
+    </dependencies>
+  </metadata>
+</package>

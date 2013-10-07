@@ -1,0 +1,35 @@
+﻿<div data-ng-controller="DoanListController">
+        <h2>Doan TNTT in the USA</h2>
+        <div data-ng-show="!isBusy">Doan Count: {{ data.doans.length }}</div>
+    <div>
+        <a href="#/addDoan">Add New Doan</a>
+    </div>
+        <div class="progress progress-striped active" data-ng-show="isBusy">
+            <div class="progress-bar" style="width: 100%"></div>
+        </div>
+            
+        <section data-ng-show="!isBusy">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Miền</th>
+                        <th>Đoàn</th>
+                        <th>Website</th>
+                        <th>Parish Name</th>
+                        <th>Address</th>
+                        <th>Nhiem Ky</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="i in data.doans">
+                    <tr>
+                        <td> {{i.mienName}} </td>
+                        <td> {{i.name}} </td>
+                        <td><a href="http://{{i.website}}" target="_blank">{{i.website}}</a></td>
+                        <td>{{i.parishName}}</td>
+                        <td>{{i.address}} {{i.city}} {{i.state}} {{i.zip}}</td>
+                        <td><a data-ng-href="#/doan/{{ i.id }}">{{i.startDate | date:'yyyy'}}-{{i.endDate | date:'yyyy'}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+</div>

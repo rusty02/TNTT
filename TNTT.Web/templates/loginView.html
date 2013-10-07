@@ -1,0 +1,61 @@
+﻿
+<div class="row-fluid" data-ng-controller="loginController">
+    <hgroup class="title">
+    <h1>Log in</h1>
+</hgroup>
+    <section class="span7">
+        <form>
+            <fieldset class="form-horizontal">
+                <legend>Use a local account to log in.</legend>
+                <ul class="text-error">
+                    <li data-bind="text: $data"></li>
+                </ul>
+                <div class="control-group">
+                    <label for="UserName" class="control-label">User name</label>
+                    <div class="controls">
+                        <input type="text" name="UserName" />
+                        <span class="text-error"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="Password" class="control-label">Password</label>
+                    <div class="controls">
+                        <input type="password" name="Password" />
+                        <span class="text-error"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox" name="RememberMe" />
+                            <label for="RememberMe">Remember me?</label>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions no-color">
+                    <button type="submit" class="btn">Log in</button>
+                </div>
+                <p><a href="#" >Register</a> if you don't have a local account.</p>
+            </fieldset>
+        </form>
+    </section>
+    <section class="span5">
+        <h2>Log in using another service</h2>
+        <div>
+            <div class="message-info">
+                <p>
+                    There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=252166">this article</a>
+                    for details on setting up this ASP.NET application to support logging in via external services.
+                </p>
+            </div>
+            <form>
+                <fieldset class="form-horizontal">
+                    <legend>Use another service to log in.</legend>
+                    <p>
+                        <button type="submit" class="btn"></button>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+</>

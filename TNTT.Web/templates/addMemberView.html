@@ -1,0 +1,60 @@
+﻿<div data-ng-controller="AddMemberController">
+    <div class="leftDiv">
+        <h1>Add New Member</h1>
+        <form name="newMemberForm">
+            <fieldset>
+                <div>
+                    <label for="title">Role</label>
+                    <select id="selRole" class="input-block-level" data-ng-model="roleSelected" data-ng-options="obj.id as obj.name for obj in roleList.data">    
+                    </select>
+                </div>
+                <div>
+                    <label for="title">Miền</label>
+                    <select id="selMien" class="input-block-level" data-ng-model="mienSelected" data-ng-options="obj.id as obj.name for obj in mienList.data" data-ng-change="updateDoanlist()">    
+                    </select>
+                </div>
+                <div>
+                    <label for="title">Đoàn</label>
+                    <select id="selDoan" class="input-block-level" data-ng-model="doanSelected" data-ng-options="obj.id as obj.name for obj in doanList.data">    
+                    </select>
+                </div>
+                <div>
+                    <label for="title">Saint Name</label>
+                    <input name="saintName" type="text" data-ng-model="newMember.saintName" />
+                </div>
+                <div>
+                    <label for="title">Last Name</label>
+                    <input name="lastName" type="text" data-ng-model="newMember.lastName" required />
+                    <span class="error" data-ng-show="newMemberForm.lastName.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="title">Middle Name</label>
+                    <input name="middleName" type="text" data-ng-model="newMember.middleName" />
+                </div>
+                <div>
+                    <label for="title">First Name</label>
+                    <input name="firstName" type="text" data-ng-model="newMember.firstName" required />
+                    <span class="error" data-ng-show="newMemberForm.firstName.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="title">Email</label>
+                    <input name="email" type="email" data-ng-model="newMember.email" required />
+                    <span class="error" data-ng-show="newMemberForm.email.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="gender">Gender</label>
+                    <input name="gender" type="text" data-ng-model="newMember.gender" required placeholder="M/F" maxlength="1" />
+                    <span class="error" data-ng-show="newMemberForm.gender.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="birthdate">Birth Date</label>
+                    <input name="birthdate" type="text" data-ng-model="newMember.dateOfBirth" data-ng-pattern="/\d\d/\d\d/\d\d\d\d/" placeholder="mm/dd/yyy" maxlength="10" />
+                </div>
+                <div>
+                    <button type="submit" data-ng-disabled="newMemberForm.$invalid" data-ng-click="saveMember(newMember, newMemberForm)" class="btn btn-primary">Save</button>
+                    <button type="button" data-ng-click="cancelAdd()" class="btn btn-default">Cancel</button>
+                </div>
+            </fieldset> 
+        </form>
+    </div>
+</div>

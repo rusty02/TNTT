@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TNTTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TNTTModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="TNTTModel.Store.Contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Doan" EntityType="TNTTModel.Store.Doan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LienDoan" EntityType="TNTTModel.Store.LienDoan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mien" EntityType="TNTTModel.Store.Mien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SaMac" EntityType="TNTTModel.Store.SaMac" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SaMacDanhSach" EntityType="TNTTModel.Store.SaMacDanhSach" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TrungUong" EntityType="TNTTModel.Store.TrungUong" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Contact_Doan" Association="TNTTModel.Store.FK_Contact_Doan">
+            <End Role="Doan" EntitySet="Doan" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doan_LienDoan" Association="TNTTModel.Store.FK_Doan_LienDoan">
+            <End Role="LienDoan" EntitySet="LienDoan" />
+            <End Role="Doan" EntitySet="Doan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doan_Mien" Association="TNTTModel.Store.FK_Doan_Mien">
+            <End Role="Mien" EntitySet="Mien" />
+            <End Role="Doan" EntitySet="Doan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LienDoan_Mien" Association="TNTTModel.Store.FK_LienDoan_Mien">
+            <End Role="Mien" EntitySet="Mien" />
+            <End Role="LienDoan" EntitySet="LienDoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mien_TrungUong" Association="TNTTModel.Store.FK_Mien_TrungUong">
+            <End Role="TrungUong" EntitySet="TrungUong" />
+            <End Role="Mien" EntitySet="Mien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMac_LienDoan" Association="TNTTModel.Store.FK_SaMac_LienDoan">
+            <End Role="LienDoan" EntitySet="LienDoan" />
+            <End Role="SaMac" EntitySet="SaMac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMac_Mien" Association="TNTTModel.Store.FK_SaMac_Mien">
+            <End Role="Mien" EntitySet="Mien" />
+            <End Role="SaMac" EntitySet="SaMac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMacDanhSach_Contact" Association="TNTTModel.Store.FK_SaMacDanhSach_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="SaMacDanhSach" EntitySet="SaMacDanhSach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMacDanhSach_SaMac" Association="TNTTModel.Store.FK_SaMacDanhSach_SaMac">
+            <End Role="SaMac" EntitySet="SaMac" />
+            <End Role="SaMacDanhSach" EntitySet="SaMacDanhSach" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="int" Nullable="false" />
+          <Property Name="CapBac" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoanId" Type="int" Nullable="false" />
+          <Property Name="SaintName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="AddressLine" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="char" MaxLength="10" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdate" Type="datetime" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Doan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MienId" Type="int" Nullable="false" />
+          <Property Name="LienDoanId" Type="int" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ChaTuyenUy" Type="int" />
+          <Property Name="DoanTruong" Type="int" />
+          <Property Name="PhoQuanTri" Type="int" />
+          <Property Name="PhoNghienHuan" Type="int" />
+          <Property Name="ThuKy" Type="int" />
+          <Property Name="ThuQuy" Type="int" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParishName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LienDoan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MienId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ChaTuyenUy" Type="int" />
+          <Property Name="DoanTruong" Type="int" />
+          <Property Name="PhoQuanTri" Type="int" />
+          <Property Name="PhoNghienHuan" Type="int" />
+          <Property Name="ThuKy" Type="int" />
+          <Property Name="ThuQuy" Type="int" />
+          <Property Name="UyVienAu" Type="int" />
+          <Property Name="UyVienThieu" Type="int" />
+          <Property Name="UyVienNghia" Type="int" />
+          <Property Name="UyVienHiep" Type="int" />
+          <Property Name="UyVienKyThuat" Type="int" />
+          <Property Name="UyVienPhungVu" Type="int" />
+          <Property Name="UyVienGiaoTe" Type="int" />
+          <Property Name="UyVienVanNghe" Type="int" />
+          <Property Name="UyVienXaHoi" Type="int" />
+          <Property Name="UyVienTaiChanh" Type="nvarchar" MaxLength="50" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TruongUongId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ChaTuyenUy" Type="int" />
+          <Property Name="ChuTich" Type="int" />
+          <Property Name="PhoQuanTri" Type="int" />
+          <Property Name="PhoNghienHuan" Type="int" />
+          <Property Name="ThuKy" Type="int" />
+          <Property Name="ThuQuy" Type="int" />
+          <Property Name="UyVienAu" Type="int" />
+          <Property Name="UyVienThieu" Type="int" />
+          <Property Name="UyVienNghia" Type="int" />
+          <Property Name="UyVienHiep" Type="int" />
+          <Property Name="UyVienKyThuat" Type="int" />
+          <Property Name="UyVienPhungVu" Type="int" />
+          <Property Name="UyVienTruyenThong" Type="int" />
+          <Property Name="UyVienGiaoTe" Type="int" />
+          <Property Name="UyVienDaiHoi" Type="int" />
+          <Property Name="UyVienBaoChi" Type="int" />
+          <Property Name="UyVienVanNghe" Type="int" />
+          <Property Name="UyVienXaHoi" Type="int" />
+          <Property Name="UyVienTaiChanh" Type="int" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SaMac">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MienId" Type="int" />
+          <Property Name="LienDoanId" Type="int" />
+          <Property Name="SaMacCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SaMacName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ChaTuyenUy" Type="int" />
+          <Property Name="SaMacTruong" Type="int" />
+          <Property Name="SaMacPho" Type="int" />
+          <Property Name="KhoaTruong" Type="int" />
+          <Property Name="ContactPerson" Type="int" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaMacStartDate" Type="date" />
+          <Property Name="SaMacEndDate" Type="date" />
+        </EntityType>
+        <EntityType Name="SaMacDanhSach">
+          <Key>
+            <PropertyRef Name="SaMacId" />
+          </Key>
+          <Property Name="SaMacId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactId" Type="int" Nullable="false" />
+          <Property Name="TeamName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mentor" Type="int" />
+          <Property Name="Completion" Type="bit" />
+          <Property Name="TienSaMac" Type="nvarchar" MaxLength="50" />
+          <Property Name="HauSaMac" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pass" Type="bit" />
+          <Property Name="ThangCap" Type="bit" />
+          <Property Name="ThangCapDate" Type="date" />
+        </EntityType>
+        <EntityType Name="TrungUong">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ChaTuyenUy" Type="int" />
+          <Property Name="ChuTich" Type="int" />
+          <Property Name="PhoQuanTri" Type="int" />
+          <Property Name="PhoNghienHuan" Type="int" />
+          <Property Name="ThuKy" Type="int" />
+          <Property Name="ThuQuy" Type="int" />
+          <Property Name="UyVienAu" Type="int" />
+          <Property Name="UyVienThieu" Type="int" />
+          <Property Name="UyVienNghia" Type="int" />
+          <Property Name="UyVienHiep" Type="int" />
+          <Property Name="UyVienKyThuat" Type="int" />
+          <Property Name="UyVienPhungVu" Type="int" />
+          <Property Name="UyVienTruyenThong" Type="int" />
+          <Property Name="UyVienGiaoTe" Type="int" />
+          <Property Name="UyVienDaiHoi" Type="int" />
+          <Property Name="UyVienBaoChi" Type="int" />
+          <Property Name="UyVienVanNghe" Type="int" />
+          <Property Name="UyVienXaHoi" Type="int" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Contact_Doan">
+          <End Role="Doan" Type="TNTTModel.Store.Doan" Multiplicity="1" />
+          <End Role="Contact" Type="TNTTModel.Store.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="DoanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doan_LienDoan">
+          <End Role="LienDoan" Type="TNTTModel.Store.LienDoan" Multiplicity="0..1" />
+          <End Role="Doan" Type="TNTTModel.Store.Doan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LienDoan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doan">
+              <PropertyRef Name="LienDoanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doan_Mien">
+          <End Role="Mien" Type="TNTTModel.Store.Mien" Multiplicity="1" />
+          <End Role="Doan" Type="TNTTModel.Store.Doan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doan">
+              <PropertyRef Name="MienId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LienDoan_Mien">
+          <End Role="Mien" Type="TNTTModel.Store.Mien" Multiplicity="1" />
+          <End Role="LienDoan" Type="TNTTModel.Store.LienDoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LienDoan">
+              <PropertyRef Name="MienId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mien_TrungUong">
+          <End Role="TrungUong" Type="TNTTModel.Store.TrungUong" Multiplicity="1" />
+          <End Role="Mien" Type="TNTTModel.Store.Mien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrungUong">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mien">
+              <PropertyRef Name="TruongUongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMac_LienDoan">
+          <End Role="LienDoan" Type="TNTTModel.Store.LienDoan" Multiplicity="0..1" />
+          <End Role="SaMac" Type="TNTTModel.Store.SaMac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LienDoan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMac">
+              <PropertyRef Name="LienDoanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMac_Mien">
+          <End Role="Mien" Type="TNTTModel.Store.Mien" Multiplicity="0..1" />
+          <End Role="SaMac" Type="TNTTModel.Store.SaMac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMac">
+              <PropertyRef Name="MienId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMacDanhSach_Contact">
+          <End Role="Contact" Type="TNTTModel.Store.Contact" Multiplicity="1" />
+          <End Role="SaMacDanhSach" Type="TNTTModel.Store.SaMacDanhSach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMacDanhSach">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMacDanhSach_SaMac">
+          <End Role="SaMac" Type="TNTTModel.Store.SaMac" Multiplicity="1" />
+          <End Role="SaMacDanhSach" Type="TNTTModel.Store.SaMacDanhSach" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SaMac">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMacDanhSach">
+              <PropertyRef Name="SaMacId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TNTTModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TNTTEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="TNTTModel.Contact" />
+          <EntitySet Name="Doans" EntityType="TNTTModel.Doan" />
+          <EntitySet Name="LienDoans" EntityType="TNTTModel.LienDoan" />
+          <EntitySet Name="Miens" EntityType="TNTTModel.Mien" />
+          <EntitySet Name="SaMacs" EntityType="TNTTModel.SaMac" />
+          <EntitySet Name="SaMacDanhSaches" EntityType="TNTTModel.SaMacDanhSach" />
+          <EntitySet Name="TrungUongs" EntityType="TNTTModel.TrungUong" />
+          <AssociationSet Name="FK_Contact_Doan" Association="TNTTModel.FK_Contact_Doan">
+            <End Role="Doan" EntitySet="Doans" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMacDanhSach_Contact" Association="TNTTModel.FK_SaMacDanhSach_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="SaMacDanhSach" EntitySet="SaMacDanhSaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doan_LienDoan" Association="TNTTModel.FK_Doan_LienDoan">
+            <End Role="LienDoan" EntitySet="LienDoans" />
+            <End Role="Doan" EntitySet="Doans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Doan_Mien" Association="TNTTModel.FK_Doan_Mien">
+            <End Role="Mien" EntitySet="Miens" />
+            <End Role="Doan" EntitySet="Doans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LienDoan_Mien" Association="TNTTModel.FK_LienDoan_Mien">
+            <End Role="Mien" EntitySet="Miens" />
+            <End Role="LienDoan" EntitySet="LienDoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMac_LienDoan" Association="TNTTModel.FK_SaMac_LienDoan">
+            <End Role="LienDoan" EntitySet="LienDoans" />
+            <End Role="SaMac" EntitySet="SaMacs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mien_TrungUong" Association="TNTTModel.FK_Mien_TrungUong">
+            <End Role="TrungUong" EntitySet="TrungUongs" />
+            <End Role="Mien" EntitySet="Miens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMac_Mien" Association="TNTTModel.FK_SaMac_Mien">
+            <End Role="Mien" EntitySet="Miens" />
+            <End Role="SaMac" EntitySet="SaMacs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaMacDanhSach_SaMac" Association="TNTTModel.FK_SaMacDanhSach_SaMac">
+            <End Role="SaMac" EntitySet="SaMacs" />
+            <End Role="SaMacDanhSach" EntitySet="SaMacDanhSaches" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="TNTTModel.RoleList" Nullable="false" />
+          <Property Name="CapBac" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DoanId" Type="Int32" Nullable="false" />
+          <Property Name="SaintName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="AddressLine" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="Phone1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Doan" Relationship="TNTTModel.FK_Contact_Doan" FromRole="Contact" ToRole="Doan" />
+          <NavigationProperty Name="SaMacDanhSaches" Relationship="TNTTModel.FK_SaMacDanhSach_Contact" FromRole="Contact" ToRole="SaMacDanhSach" />
+        </EntityType>
+        <EntityType Name="Doan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MienId" Type="Int32" Nullable="false" />
+          <Property Name="LienDoanId" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ChaTuyenUy" Type="Int32" />
+          <Property Name="DoanTruong" Type="Int32" />
+          <Property Name="PhoQuanTri" Type="Int32" />
+          <Property Name="PhoNghienHuan" Type="Int32" />
+          <Property Name="ThuKy" Type="Int32" />
+          <Property Name="ThuQuy" Type="Int32" />
+          <Property Name="Website" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Facebook" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="State" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ParishName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Contacts" Relationship="TNTTModel.FK_Contact_Doan" FromRole="Doan" ToRole="Contact" />
+          <NavigationProperty Name="LienDoan" Relationship="TNTTModel.FK_Doan_LienDoan" FromRole="Doan" ToRole="LienDoan" />
+          <NavigationProperty Name="Mien" Relationship="TNTTModel.FK_Doan_Mien" FromRole="Doan" ToRole="Mien" />
+        </EntityType>
+        <EntityType Name="LienDoan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MienId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ChaTuyenUy" Type="Int32" />
+          <Property Name="DoanTruong" Type="Int32" />
+          <Property Name="PhoQuanTri" Type="Int32" />
+          <Property Name="PhoNghienHuan" Type="Int32" />
+          <Property Name="ThuKy" Type="Int32" />
+          <Property Name="ThuQuy" Type="Int32" />
+          <Property Name="UyVienAu" Type="Int32" />
+          <Property Name="UyVienThieu" Type="Int32" />
+          <Property Name="UyVienNghia" Type="Int32" />
+          <Property Name="UyVienHiep" Type="Int32" />
+          <Property Name="UyVienKyThuat" Type="Int32" />
+          <Property Name="UyVienPhungVu" Type="Int32" />
+          <Property Name="UyVienGiaoTe" Type="Int32" />
+          <Property Name="UyVienVanNghe" Type="Int32" />
+          <Property Name="UyVienXaHoi" Type="Int32" />
+          <Property Name="UyVienTaiChanh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Website" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Facebook" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Doans" Relationship="TNTTModel.FK_Doan_LienDoan" FromRole="LienDoan" ToRole="Doan" />
+          <NavigationProperty Name="Mien" Relationship="TNTTModel.FK_LienDoan_Mien" FromRole="LienDoan" ToRole="Mien" />
+          <NavigationProperty Name="SaMacs" Relationship="TNTTModel.FK_SaMac_LienDoan" FromRole="LienDoan" ToRole="SaMac" />
+        </EntityType>
+        <EntityType Name="Mien">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TruongUongId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="TNTTModel.MienList" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ChaTuyenUy" Type="Int32" />
+          <Property Name="ChuTich" Type="Int32" />
+          <Property Name="PhoQuanTri" Type="Int32" />
+          <Property Name="PhoNghienHuan" Type="Int32" />
+          <Property Name="ThuKy" Type="Int32" />
+          <Property Name="ThuQuy" Type="Int32" />
+          <Property Name="UyVienAu" Type="Int32" />
+          <Property Name="UyVienThieu" Type="Int32" />
+          <Property Name="UyVienNghia" Type="Int32" />
+          <Property Name="UyVienHiep" Type="Int32" />
+          <Property Name="UyVienKyThuat" Type="Int32" />
+          <Property Name="UyVienPhungVu" Type="Int32" />
+          <Property Name="UyVienTruyenThong" Type="Int32" />
+          <Property Name="UyVienGiaoTe" Type="Int32" />
+          <Property Name="UyVienDaiHoi" Type="Int32" />
+          <Property Name="UyVienBaoChi" Type="Int32" />
+          <Property Name="UyVienVanNghe" Type="Int32" />
+          <Property Name="UyVienXaHoi" Type="Int32" />
+          <Property Name="UyVienTaiChanh" Type="Int32" />
+          <Property Name="Website" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Facebook" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Doans" Relationship="TNTTModel.FK_Doan_Mien" FromRole="Mien" ToRole="Doan" />
+          <NavigationProperty Name="LienDoans" Relationship="TNTTModel.FK_LienDoan_Mien" FromRole="Mien" ToRole="LienDoan" />
+          <NavigationProperty Name="TrungUong" Relationship="TNTTModel.FK_Mien_TrungUong" FromRole="Mien" ToRole="TrungUong" />
+          <NavigationProperty Name="SaMacs" Relationship="TNTTModel.FK_SaMac_Mien" FromRole="Mien" ToRole="SaMac" />
+        </EntityType>
+        <EntityType Name="SaMac">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MienId" Type="Int32" />
+          <Property Name="LienDoanId" Type="Int32" />
+          <Property Name="SaMacCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SaMacName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ChaTuyenUy" Type="Int32" />
+          <Property Name="SaMacTruong" Type="Int32" />
+          <Property Name="SaMacPho" Type="Int32" />
+          <Property Name="KhoaTruong" Type="Int32" />
+          <Property Name="ContactPerson" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SaMacStartDate" Type="DateTime" Precision="0" />
+          <Property Name="SaMacEndDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="LienDoan" Relationship="TNTTModel.FK_SaMac_LienDoan" FromRole="SaMac" ToRole="LienDoan" />
+          <NavigationProperty Name="Mien" Relationship="TNTTModel.FK_SaMac_Mien" FromRole="SaMac" ToRole="Mien" />
+          <NavigationProperty Name="SaMacDanhSach" Relationship="TNTTModel.FK_SaMacDanhSach_SaMac" FromRole="SaMac" ToRole="SaMacDanhSach" />
+        </EntityType>
+        <EntityType Name="SaMacDanhSach">
+          <Key>
+            <PropertyRef Name="SaMacId" />
+          </Key>
+          <Property Name="SaMacId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactId" Type="Int32" Nullable="false" />
+          <Property Name="TeamName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mentor" Type="Int32" />
+          <Property Name="Completion" Type="Boolean" />
+          <Property Name="TienSaMac" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="HauSaMac" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Pass" Type="Boolean" />
+          <Property Name="ThangCap" Type="Boolean" />
+          <Property Name="ThangCapDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Contact" Relationship="TNTTModel.FK_SaMacDanhSach_Contact" FromRole="SaMacDanhSach" ToRole="Contact" />
+          <NavigationProperty Name="SaMac" Relationship="TNTTModel.FK_SaMacDanhSach_SaMac" FromRole="SaMacDanhSach" ToRole="SaMac" />
+        </EntityType>
+        <EntityType Name="TrungUong">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ChaTuyenUy" Type="Int32" />
+          <Property Name="ChuTich" Type="Int32" />
+          <Property Name="PhoQuanTri" Type="Int32" />
+          <Property Name="PhoNghienHuan" Type="Int32" />
+          <Property Name="ThuKy" Type="Int32" />
+          <Property Name="ThuQuy" Type="Int32" />
+          <Property Name="UyVienAu" Type="Int32" />
+          <Property Name="UyVienThieu" Type="Int32" />
+          <Property Name="UyVienNghia" Type="Int32" />
+          <Property Name="UyVienHiep" Type="Int32" />
+          <Property Name="UyVienKyThuat" Type="Int32" />
+          <Property Name="UyVienPhungVu" Type="Int32" />
+          <Property Name="UyVienTruyenThong" Type="Int32" />
+          <Property Name="UyVienGiaoTe" Type="Int32" />
+          <Property Name="UyVienDaiHoi" Type="Int32" />
+          <Property Name="UyVienBaoChi" Type="Int32" />
+          <Property Name="UyVienVanNghe" Type="Int32" />
+          <Property Name="UyVienXaHoi" Type="Int32" />
+          <Property Name="Website" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Facebook" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Miens" Relationship="TNTTModel.FK_Mien_TrungUong" FromRole="TrungUong" ToRole="Mien" />
+        </EntityType>
+        <Association Name="FK_Contact_Doan">
+          <End Role="Doan" Type="TNTTModel.Doan" Multiplicity="1" />
+          <End Role="Contact" Type="TNTTModel.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="DoanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMacDanhSach_Contact">
+          <End Role="Contact" Type="TNTTModel.Contact" Multiplicity="1" />
+          <End Role="SaMacDanhSach" Type="TNTTModel.SaMacDanhSach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMacDanhSach">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doan_LienDoan">
+          <End Role="LienDoan" Type="TNTTModel.LienDoan" Multiplicity="0..1" />
+          <End Role="Doan" Type="TNTTModel.Doan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LienDoan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doan">
+              <PropertyRef Name="LienDoanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Doan_Mien">
+          <End Role="Mien" Type="TNTTModel.Mien" Multiplicity="1" />
+          <End Role="Doan" Type="TNTTModel.Doan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Doan">
+              <PropertyRef Name="MienId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LienDoan_Mien">
+          <End Role="Mien" Type="TNTTModel.Mien" Multiplicity="1" />
+          <End Role="LienDoan" Type="TNTTModel.LienDoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LienDoan">
+              <PropertyRef Name="MienId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMac_LienDoan">
+          <End Role="LienDoan" Type="TNTTModel.LienDoan" Multiplicity="0..1" />
+          <End Role="SaMac" Type="TNTTModel.SaMac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LienDoan">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMac">
+              <PropertyRef Name="LienDoanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mien_TrungUong">
+          <End Role="TrungUong" Type="TNTTModel.TrungUong" Multiplicity="1" />
+          <End Role="Mien" Type="TNTTModel.Mien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrungUong">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mien">
+              <PropertyRef Name="TruongUongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMac_Mien">
+          <End Role="Mien" Type="TNTTModel.Mien" Multiplicity="0..1" />
+          <End Role="SaMac" Type="TNTTModel.SaMac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mien">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMac">
+              <PropertyRef Name="MienId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaMacDanhSach_SaMac">
+          <End Role="SaMac" Type="TNTTModel.SaMac" Multiplicity="1" />
+          <End Role="SaMacDanhSach" Type="TNTTModel.SaMacDanhSach" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SaMac">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SaMacDanhSach">
+              <PropertyRef Name="SaMacId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="MienList">
+          <Member Name="MienTayBac" Value="1" />
+          <Member Name="MienTay" Value="2" />
+          <Member Name="MienTayNam" Value="3" />
+          <Member Name="MienNam" Value="4" />
+          <Member Name="MienTrung" Value="5" />
+          <Member Name="MienTrungDong" Value="6" />
+          <Member Name="MienDongBac" Value="7" />
+          <Member Name="MienDongNam" Value="8" />
+        </EnumType>
+        <EnumType Name="RoleList">
+          <Member Name="TuyenUy" Value="1" />
+          <Member Name="TroUy" Value="2" />
+          <Member Name="TroTa" Value="3" />
+          <Member Name="HuynhTruong" Value="4" />
+          <Member Name="HuanLuyenVien" Value="5" />
+        </EnumType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TNTTModelStoreContainer" CdmEntityContainer="TNTTEntities">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="TNTTModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="CapBac" ColumnName="CapBac" />
+                <ScalarProperty Name="DoanId" ColumnName="DoanId" />
+                <ScalarProperty Name="SaintName" ColumnName="SaintName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="AddressLine" ColumnName="AddressLine" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doans">
+            <EntityTypeMapping TypeName="TNTTModel.Doan">
+              <MappingFragment StoreEntitySet="Doan">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MienId" ColumnName="MienId" />
+                <ScalarProperty Name="LienDoanId" ColumnName="LienDoanId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ChaTuyenUy" ColumnName="ChaTuyenUy" />
+                <ScalarProperty Name="DoanTruong" ColumnName="DoanTruong" />
+                <ScalarProperty Name="PhoQuanTri" ColumnName="PhoQuanTri" />
+                <ScalarProperty Name="PhoNghienHuan" ColumnName="PhoNghienHuan" />
+                <ScalarProperty Name="ThuKy" ColumnName="ThuKy" />
+                <ScalarProperty Name="ThuQuy" ColumnName="ThuQuy" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ParishName" ColumnName="ParishName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LienDoans">
+            <EntityTypeMapping TypeName="TNTTModel.LienDoan">
+              <MappingFragment StoreEntitySet="LienDoan">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MienId" ColumnName="MienId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ChaTuyenUy" ColumnName="ChaTuyenUy" />
+                <ScalarProperty Name="DoanTruong" ColumnName="DoanTruong" />
+                <ScalarProperty Name="PhoQuanTri" ColumnName="PhoQuanTri" />
+                <ScalarProperty Name="PhoNghienHuan" ColumnName="PhoNghienHuan" />
+                <ScalarProperty Name="ThuKy" ColumnName="ThuKy" />
+                <ScalarProperty Name="ThuQuy" ColumnName="ThuQuy" />
+                <ScalarProperty Name="UyVienAu" ColumnName="UyVienAu" />
+                <ScalarProperty Name="UyVienThieu" ColumnName="UyVienThieu" />
+                <ScalarProperty Name="UyVienNghia" ColumnName="UyVienNghia" />
+                <ScalarProperty Name="UyVienHiep" ColumnName="UyVienHiep" />
+                <ScalarProperty Name="UyVienKyThuat" ColumnName="UyVienKyThuat" />
+                <ScalarProperty Name="UyVienPhungVu" ColumnName="UyVienPhungVu" />
+                <ScalarProperty Name="UyVienGiaoTe" ColumnName="UyVienGiaoTe" />
+                <ScalarProperty Name="UyVienVanNghe" ColumnName="UyVienVanNghe" />
+                <ScalarProperty Name="UyVienXaHoi" ColumnName="UyVienXaHoi" />
+                <ScalarProperty Name="UyVienTaiChanh" ColumnName="UyVienTaiChanh" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Miens">
+            <EntityTypeMapping TypeName="TNTTModel.Mien">
+              <MappingFragment StoreEntitySet="Mien">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TruongUongId" ColumnName="TruongUongId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ChaTuyenUy" ColumnName="ChaTuyenUy" />
+                <ScalarProperty Name="ChuTich" ColumnName="ChuTich" />
+                <ScalarProperty Name="PhoQuanTri" ColumnName="PhoQuanTri" />
+                <ScalarProperty Name="PhoNghienHuan" ColumnName="PhoNghienHuan" />
+                <ScalarProperty Name="ThuKy" ColumnName="ThuKy" />
+                <ScalarProperty Name="ThuQuy" ColumnName="ThuQuy" />
+                <ScalarProperty Name="UyVienAu" ColumnName="UyVienAu" />
+                <ScalarProperty Name="UyVienThieu" ColumnName="UyVienThieu" />
+                <ScalarProperty Name="UyVienNghia" ColumnName="UyVienNghia" />
+                <ScalarProperty Name="UyVienHiep" ColumnName="UyVienHiep" />
+                <ScalarProperty Name="UyVienKyThuat" ColumnName="UyVienKyThuat" />
+                <ScalarProperty Name="UyVienPhungVu" ColumnName="UyVienPhungVu" />
+                <ScalarProperty Name="UyVienTruyenThong" ColumnName="UyVienTruyenThong" />
+                <ScalarProperty Name="UyVienGiaoTe" ColumnName="UyVienGiaoTe" />
+                <ScalarProperty Name="UyVienDaiHoi" ColumnName="UyVienDaiHoi" />
+                <ScalarProperty Name="UyVienBaoChi" ColumnName="UyVienBaoChi" />
+                <ScalarProperty Name="UyVienVanNghe" ColumnName="UyVienVanNghe" />
+                <ScalarProperty Name="UyVienXaHoi" ColumnName="UyVienXaHoi" />
+                <ScalarProperty Name="UyVienTaiChanh" ColumnName="UyVienTaiChanh" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaMacs">
+            <EntityTypeMapping TypeName="TNTTModel.SaMac">
+              <MappingFragment StoreEntitySet="SaMac">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MienId" ColumnName="MienId" />
+                <ScalarProperty Name="LienDoanId" ColumnName="LienDoanId" />
+                <ScalarProperty Name="SaMacCode" ColumnName="SaMacCode" />
+                <ScalarProperty Name="SaMacName" ColumnName="SaMacName" />
+                <ScalarProperty Name="ChaTuyenUy" ColumnName="ChaTuyenUy" />
+                <ScalarProperty Name="SaMacTruong" ColumnName="SaMacTruong" />
+                <ScalarProperty Name="SaMacPho" ColumnName="SaMacPho" />
+                <ScalarProperty Name="KhoaTruong" ColumnName="KhoaTruong" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="SaMacStartDate" ColumnName="SaMacStartDate" />
+                <ScalarProperty Name="SaMacEndDate" ColumnName="SaMacEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaMacDanhSaches">
+            <EntityTypeMapping TypeName="TNTTModel.SaMacDanhSach">
+              <MappingFragment StoreEntitySet="SaMacDanhSach">
+                <ScalarProperty Name="SaMacId" ColumnName="SaMacId" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="Mentor" ColumnName="Mentor" />
+                <ScalarProperty Name="Completion" ColumnName="Completion" />
+                <ScalarProperty Name="TienSaMac" ColumnName="TienSaMac" />
+                <ScalarProperty Name="HauSaMac" ColumnName="HauSaMac" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="ThangCap" ColumnName="ThangCap" />
+                <ScalarProperty Name="ThangCapDate" ColumnName="ThangCapDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrungUongs">
+            <EntityTypeMapping TypeName="TNTTModel.TrungUong">
+              <MappingFragment StoreEntitySet="TrungUong">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ChaTuyenUy" ColumnName="ChaTuyenUy" />
+                <ScalarProperty Name="ChuTich" ColumnName="ChuTich" />
+                <ScalarProperty Name="PhoQuanTri" ColumnName="PhoQuanTri" />
+                <ScalarProperty Name="PhoNghienHuan" ColumnName="PhoNghienHuan" />
+                <ScalarProperty Name="ThuKy" ColumnName="ThuKy" />
+                <ScalarProperty Name="ThuQuy" ColumnName="ThuQuy" />
+                <ScalarProperty Name="UyVienAu" ColumnName="UyVienAu" />
+                <ScalarProperty Name="UyVienThieu" ColumnName="UyVienThieu" />
+                <ScalarProperty Name="UyVienNghia" ColumnName="UyVienNghia" />
+                <ScalarProperty Name="UyVienHiep" ColumnName="UyVienHiep" />
+                <ScalarProperty Name="UyVienKyThuat" ColumnName="UyVienKyThuat" />
+                <ScalarProperty Name="UyVienPhungVu" ColumnName="UyVienPhungVu" />
+                <ScalarProperty Name="UyVienTruyenThong" ColumnName="UyVienTruyenThong" />
+                <ScalarProperty Name="UyVienGiaoTe" ColumnName="UyVienGiaoTe" />
+                <ScalarProperty Name="UyVienDaiHoi" ColumnName="UyVienDaiHoi" />
+                <ScalarProperty Name="UyVienBaoChi" ColumnName="UyVienBaoChi" />
+                <ScalarProperty Name="UyVienVanNghe" ColumnName="UyVienVanNghe" />
+                <ScalarProperty Name="UyVienXaHoi" ColumnName="UyVienXaHoi" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

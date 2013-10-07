@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e58bfdfc3df4fa6974bceca99f3b4dc" Name="Diagram1">
+        <EntityTypeShape EntityType="TNTTModel.Contact" Width="1.5" PointX="9.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNTTModel.Doan" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNTTModel.LienDoan" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNTTModel.Mien" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNTTModel.SaMac" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNTTModel.SaMacDanhSach" Width="1.5" PointX="12.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TNTTModel.TrungUong" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="TNTTModel.FK_Contact_Doan" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_SaMacDanhSach_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_Doan_LienDoan" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_Doan_Mien" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_LienDoan_Mien" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_SaMac_LienDoan" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_Mien_TrungUong" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_SaMac_Mien" ManuallyRouted="false" />
+        <AssociationConnector Association="TNTTModel.FK_SaMacDanhSach_SaMac" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

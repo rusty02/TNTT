@@ -1,0 +1,15 @@
+﻿<div data-ng-controller="LocationController">
+    <h2>Locating the closest Doan from your position:</h2>
+    
+<div class="google-map" 
+		center="position.coords"
+		zoom="zoomProperty" 
+		markers="markersProperty"
+		draggable="true"
+		fit="false"
+		style="height: 400px; width: 400px">
+	</div>
+
+
+    <p>Your location is <span id="userAddress"></span></p>
+</div>

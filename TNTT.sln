@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTT.Web", "TNTT.Web\TNTT.Web.csproj", "{C7DEB1D9-01E5-4460-B801-A113A2A4C512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTT.Model", "TNTT.Model\TNTT.Model.csproj", "{1F77E0FB-DFED-4210-BE83-F80A6815DABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTT.Data", "TNTT.Data\TNTT.Data.csproj", "{89F6218B-6565-4076-90CF-9BE92CEC94B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNTT.Data.Contracts", "TNTT.Data.Contracts\TNTT.Data.Contracts.csproj", "{74AE8E25-9C84-4214-A361-E64DFD65C19B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://phung02.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TNTT.Model\\TNTT.Model.csproj
+		SccProjectName1 = TNTT.Model
+		SccLocalPath1 = TNTT.Model
+		SccProjectUniqueName2 = TNTT.Web\\TNTT.Web.csproj
+		SccProjectName2 = TNTT.Web
+		SccLocalPath2 = TNTT.Web
+		SccProjectUniqueName3 = TNTT.Data\\TNTT.Data.csproj
+		SccProjectName3 = TNTT.Data
+		SccLocalPath3 = TNTT.Data
+		SccProjectUniqueName4 = TNTT.Data.Contracts\\TNTT.Data.Contracts.csproj
+		SccProjectName4 = TNTT.Data.Contracts
+		SccLocalPath4 = TNTT.Data.Contracts
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7DEB1D9-01E5-4460-B801-A113A2A4C512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DEB1D9-01E5-4460-B801-A113A2A4C512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DEB1D9-01E5-4460-B801-A113A2A4C512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DEB1D9-01E5-4460-B801-A113A2A4C512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F77E0FB-DFED-4210-BE83-F80A6815DABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F77E0FB-DFED-4210-BE83-F80A6815DABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F77E0FB-DFED-4210-BE83-F80A6815DABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F77E0FB-DFED-4210-BE83-F80A6815DABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F6218B-6565-4076-90CF-9BE92CEC94B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F6218B-6565-4076-90CF-9BE92CEC94B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F6218B-6565-4076-90CF-9BE92CEC94B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F6218B-6565-4076-90CF-9BE92CEC94B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74AE8E25-9C84-4214-A361-E64DFD65C19B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74AE8E25-9C84-4214-A361-E64DFD65C19B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74AE8E25-9C84-4214-A361-E64DFD65C19B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74AE8E25-9C84-4214-A361-E64DFD65C19B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

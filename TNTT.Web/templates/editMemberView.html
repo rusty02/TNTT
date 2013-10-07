@@ -1,0 +1,79 @@
+﻿<div data-ng-controller="EditMemberController">
+    <div class="leftDiv">
+        <h1>Edit Member</h1>
+        <form name="editMemberForm">
+            <fieldset>
+                <div>
+                    <label for="selRole">Role</label>
+                    <select id="selRole" class="input-block-level" data-ng-model="roleSelected" data-ng-options="obj.id as obj.name for obj in roleList.data">    
+                    </select>
+                </div>
+                <div>
+                    <label for="saintName">Saint Name</label>
+                    <input name="saintName" type="text" data-ng-model="member.saintName" />
+                </div>
+                <div>
+                    <label for="lastName">Last Name</label>
+                    <input name="lastName" type="text" data-ng-model="member.lastName" required />
+                    <span class="error" data-ng-show="editMemberForm.lastName.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="middleName">Middle Name</label>
+                    <input name="middleName" type="text" data-ng-model="member.middleName" />
+                </div>
+                <div>
+                    <label for="firstName">First Name</label>
+                    <input name="firstName" type="text" data-ng-model="member.firstName" required />
+                    <span class="error" data-ng-show="editMemberForm.firstName.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input name="email" type="email" data-ng-model="member.email" required placeholder="user@host.com" />
+                    <span class="error" data-ng-show="editMemberForm.email.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="gender">Gender</label>
+                    <input name="gender" type="text" data-ng-model="member.gender" required placeholder="M/F" maxlength="1" />
+                    <span class="error" data-ng-show="editMemberForm.gender.$error.required">*</span>
+                </div>
+                <div>
+                    <label for="birthdate">Birth Date</label>
+                    <input name="birthdate" type="text" data-ng-model="member.dateOfBirth" data-ng-pattern="/\d\d/\d\d/\d\d\d\d/" placeholder="mm/dd/yyy" maxlength="10" />
+                </div>
+                <div>
+                    <label for="address1">Address</label>
+                    <input name="address1 " type="text" data-ng-model="member.address" />
+                </div>
+                <div>
+                    <label for="address2">City, State, Zip</label>
+                    <div class="sizeSmall">
+                        <input name="address2" type="text" data-ng-model="member.city" placeholder="City" />
+                        <input name="address2" type="text" data-ng-model="member.state" maxlength="2" placeholder="State"/>
+                        <input name="address2" type="text" data-ng-model="member.zip" maxlength="5" placeholder="Zip" />
+                    </div>
+                </div>
+                <div>
+                    <label for="phone">Phone</label>
+                    <input name="phone" type="text" data-ng-model="member.phone" placeholder="0123456789" maxlength="10" />
+                </div>
+                <div>
+                    <label for="status">Status</label>
+                    <input name="status" type="text" data-ng-model="member.status" placeholder="Active/Inactive" />
+                </div>
+                <div>
+                    <label for="selMien">Miền</label>
+                    <select id="selMien" class="input-block-level" data-ng-model="mienSelected" data-ng-options="obj.id as obj.name for obj in mienList.data">    
+                    </select>
+                </div>
+                <div>
+                    <label for="doan">Đoàn</label>
+                    <input name="doan" type="text" data-ng-model="member.doanName" disabled="disabled" />
+                </div>
+                <div>
+                    <button type="submit" data-ng-disabled="editMemberForm.$invalid" data-ng-click="saveMember(member,editMemberForm)" class="btn btn-primary">Save</button>
+                    <button type="button" data-ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+                </div>
+            </fieldset> 
+        </form>
+    </div>
+</div>
